@@ -1,0 +1,16 @@
+[
+  {"item_id": 1,
+   "means": "Invented sample note. The guidance for agents on signing up sole-trader clients has changed. The practice should check its sign-up plan against it before the next batch of clients.",
+   "impact": "watch", "urgency": "this_month", "confidence": "low",
+   "action": "Read the updated guidance and compare it with the practice's sign-up list.",
+   "sources": [],
+   "gaps": [{"kind": "capability", "title": "No standard client onboarding checklist",
+             "why": "Invented sample gap raised by the profile.",
+             "close_steps": ["List the steps the practice already follows", "Turn them into one checklist"],
+             "effort": "days"}]},
+  {"item_id": 2,
+   "means": "Invented sample note. A supervisor reminded firms to refresh client due diligence. The practice should check when it last refreshed its records.",
+   "impact": "threat", "urgency": "now", "confidence": "low",
+   "action": "Check the date of each client's last due-diligence review.",
+   "sources": []}
+]

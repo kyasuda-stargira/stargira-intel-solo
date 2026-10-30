@@ -1,0 +1,15 @@
+{
+  "name": "stargira-solo",
+  "owner": {
+    "name": "Stargira Advisors Ltd",
+    "url": "https://stargira.com"
+  },
+  "description": "Stargira Advisors' Claude Code plugins for small businesses.",
+  "plugins": [
+    {
+      "name": "stargira-intel-solo",
+      "source": "./",
+      "description": "Business news filtered to your firm, with 'what this means for you' notes and a gap finder."
+    }
+  ]
+}

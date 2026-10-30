@@ -1,0 +1,21 @@
+{
+  "name": "stargira-intel-solo",
+  "displayName": "Stargira Intel Solo: Business News and Gap Finder",
+  "version": "0.2.0",
+  "description": "A personal intelligence system for a sole trader or a small team on one computer. It interviews you about your business, filters the week's news to what matters to you, writes a short 'what this means for you' note on each item, lists the knowledge and capability gaps you need to close with steps for each, and keeps it all in a local searchable store. Runs on your own Claude subscription; no other service.",
+  "author": {
+    "name": "Stargira Advisors Ltd",
+    "url": "https://stargira.com"
+  },
+  "homepage": "https://stargira.com",
+  "license": "Apache-2.0",
+  "keywords": [
+    "news",
+    "business-intelligence",
+    "small-business",
+    "sole-trader",
+    "second-brain",
+    "gap-analysis",
+    "local-first"
+  ]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<rss version="2.0"><channel><title>Sample feed (invented items, for testing only)</title>
+<item><title>Sample: Making Tax Digital for Income Tax sign-up guidance updated</title>
+<link>https://example.org/sample/mtd-itsa-guidance</link>
+<description>Invented test item. Guidance for agents on signing up sole-trader clients to Making Tax Digital for Income Tax.</description></item>
+<item><title>Sample: AML supervisor issues reminder on client due diligence</title>
+<link>https://example.org/sample/aml-reminder</link>
+<description>Invented test item. An anti-money laundering supervisor reminds accountancy firms to refresh client due diligence records.</description></item>
+<item><title>Sample: Football club reports record season</title>
+<link>https://example.org/sample/football</link>
+<description>Invented test item that the filter should drop.</description></item>
+<item><title>Sample: Cloud bookkeeping provider changes partner terms</title>
+<link>https://example.org/sample/bookkeeping-partner</link>
+<description>Invented test item. A bookkeeping software provider changes the terms of its accountant partner programme.</description></item>
+<item><title>Sample: Retail footfall falls in city centres</title>
+<link>https://example.org/sample/footfall</link>
+<description>Invented test item with no match to the filter.</description></item>
+</channel></rss>

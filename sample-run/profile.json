@@ -1,0 +1,26 @@
+{
+  "business": {
+    "name": "Sample Practice (invented)",
+    "what_we_sell": "Bookkeeping, year-end accounts, self-assessment and VAT returns",
+    "customers": "Sole traders, landlords and small limited companies",
+    "where": "One English market town",
+    "size": "Three people",
+    "rules": "Anti-money laundering supervision; Making Tax Digital",
+    "goals_12m": "Move all sole-trader clients onto Making Tax Digital for Income Tax",
+    "worries": "Workload at the Making Tax Digital switch-over",
+    "capabilities_lack": "No standard client onboarding checklist"
+  },
+  "filter": {
+    "terms": [
+      {"term": "Making Tax Digital", "weight": 5},
+      {"term": "client due diligence", "weight": 3},
+      {"term": "anti-money laundering", "weight": 3},
+      {"term": "bookkeeping software", "weight": 3},
+      {"term": "sole trader", "weight": 2}
+    ],
+    "entities": ["AML supervisor"],
+    "regions": [],
+    "exclude": ["football"],
+    "threshold": 3
+  }
+}
