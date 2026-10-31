@@ -84,7 +84,7 @@ python3 -m unittest discover tests
 
 ## Support
 
-Support contact: Kaz to set.
+Email support@stargira.com with questions or problems.
 
 ## Licence
 
