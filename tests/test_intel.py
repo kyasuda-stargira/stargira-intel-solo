@@ -151,6 +151,31 @@ class EngineTest(unittest.TestCase):
         n = con.execute("SELECT count(*) FROM items WHERE status='relevant'").fetchone()[0]
         self.assertEqual(n, 2)
 
+    def test_rescore_updates_noted_items(self):
+        # noted items must be rescored too, because score sets note order in the report
+        ids = {}
+        for url, title in (("https://ex.com/boil", "Boiler news"), ("https://ex.com/hp", "Heat pump news")):
+            run(self.home, "add-item", "--url", url, "--title", title)
+            con = intel.connect(self.home)
+            ids[title] = con.execute("SELECT id FROM items WHERE url=?", (url,)).fetchone()["id"]
+            nf = Path(self.tmp.name) / "n.json"
+            nf.write_text(json.dumps({"item_id": ids[title], "means": "Means " + title, "impact": "opportunity",
+                                      "urgency": "now", "confidence": "high"}))
+            run(self.home, "note", str(nf))
+        md = Path(run(self.home, "report", "--days", "3650").strip()).read_text()
+        self.assertLess(md.index("Means Heat pump news"), md.index("Means Boiler news"))
+        new = json.loads(json.dumps(PROFILE))
+        new["filter"]["terms"] = [{"term": "heat pump", "weight": 3}, {"term": "boiler", "weight": 5}]
+        p = Path(self.tmp.name) / "p3.json"
+        p.write_text(json.dumps(new))
+        run(self.home, "profile", "save", str(p), "--rescore")
+        con = intel.connect(self.home)
+        row = con.execute("SELECT score, status FROM items WHERE id=?", (ids["Boiler news"],)).fetchone()
+        self.assertEqual(row["score"], 10)
+        self.assertEqual(row["status"], "noted")  # rescoring never un-notes an item
+        md = Path(run(self.home, "report", "--days", "3650").strip()).read_text()
+        self.assertLess(md.index("Means Boiler news"), md.index("Means Heat pump news"))
+
     def test_field_test_fixes(self):
         # term + entity with the same phrase count once
         flt = {"terms": [{"term": "Boiler Upgrade Scheme", "weight": 5}], "entities": ["boiler upgrade scheme"]}

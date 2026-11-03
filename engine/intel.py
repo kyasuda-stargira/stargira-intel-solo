@@ -23,7 +23,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-VERSION = "0.2.0"
+VERSION = "0.2.1"
 USER_AGENT = "stargira-intel-solo/%s (+local feed reader)" % VERSION
 
 IMPACTS = ("opportunity", "threat", "watch", "none")
@@ -180,11 +180,13 @@ def score_item(title, summary, flt):
 
 def triage(con, flt, only_new=True):
     thr = float(flt.get("threshold", 3))
-    where = "WHERE status='new'" if only_new else "WHERE status IN ('new','relevant','dropped')"
+    where = "WHERE status='new'" if only_new else "WHERE status IN ('new','relevant','dropped','noted')"
     n_rel = n_drop = 0
-    for row in con.execute("SELECT id, title, summary FROM items " + where).fetchall():
+    for row in con.execute("SELECT id, title, summary, status FROM items " + where).fetchall():
         s, hits, excluded = score_item(row["title"], row["summary"], flt)
         status = "relevant" if (not excluded and s >= thr) else "dropped"
+        if row["status"] == "noted":  # refresh the score (it sets note order) but keep the note
+            status = "noted"
         n_rel += status == "relevant"
         n_drop += status == "dropped"
         con.execute("UPDATE items SET score=?, matched=?, status=? WHERE id=?",
