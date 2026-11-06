@@ -23,7 +23,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 USER_AGENT = "stargira-intel-solo/%s (+local feed reader)" % VERSION
 
 IMPACTS = ("opportunity", "threat", "watch", "none")

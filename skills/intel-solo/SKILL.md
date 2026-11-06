@@ -42,6 +42,15 @@ a way to close each gap.
 6. **Stay in the store.** Add documents only when the user names them. Never index a
    whole home folder or another person's files. Respect `exclude_paths` in
    `config.json`.
+7. **Report in the owner's words, not the engine's.** When you say what happened or
+   where things stand, describe what is true for the owner. Say "four items this week
+   change what you might do; the rest don't", not "scored 37 items, 4 above threshold".
+   Lead with the effect, then what is not done yet, then the one decision the owner
+   needs to make, if any. Give item ids, file paths or command names only when the
+   owner needs them to act. No openers like "One thing to know". Don't repeat the
+   owner's own decisions back to them. Don't report what you didn't do unless they
+   would assume you did it. Short sentences, but keep "so", "but" and "because" between
+   them.
 
 ## First run: onboarding (about 10 minutes)
 
